@@ -14,3 +14,12 @@
 4. しばらく待つ
    - 初回の場合コンテナー image の取得や作成が行われる
 5. 起動したら開発可能
+
+## memo
+
+- Chrome 自体の動作確認
+  - `google-chrome --no-sandbox --headless --disable-gpu --screenshot="screenshot_$(date +"%Y%m%d").png" --window-size=1280,1080 https://www.ugtop.com/spill.shtml`
+- Chrome のバージョン確認
+  - `google-chrome --version`
+- WebDriver for Chrome のバージョン確認
+  - `poetry show | grep chromedriver-binary`
