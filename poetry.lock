@@ -288,12 +288,12 @@ files = [
 
 [[package]]
 name = "chromedriver-binary"
-version = "121.0.6137.0.0"
+version = "119.0.6045.9.0"
 description = "Installer for chromedriver."
 optional = false
 python-versions = "*"
 files = [
-    {file = "chromedriver-binary-121.0.6137.0.0.tar.gz", hash = "sha256:6e35eb32bc2399c9f35b3791128352b3d850805529704c090e3dcf5776f9aa28"},
+    {file = "chromedriver-binary-119.0.6045.9.0.tar.gz", hash = "sha256:3130c46b0beee35e75dda6a63a1b1495df6a385223589b1b9cf9774f4d8404b5"},
 ]
 
 [[package]]
@@ -1291,4 +1291,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "926f117ff6a78df77f1e05c872e2b8feb7d5d6cb83a16f5f3a3ab4150a426447"
+content-hash = "63623022ae1b3df7689a0613276e518a948654df3c8bc72afe259ba1aba91956"
