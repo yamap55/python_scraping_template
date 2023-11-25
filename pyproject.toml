@@ -17,19 +17,8 @@ chromedriver-binary = "119.0.6045.9.0"
 black = "23.11.0"
 ruff = "^0.1.6"
 
-# test
-pytest = "7.4.3"
-pytest-cov = "4.1.0"
-
 # notebook
 ipykernel = "6.26.0"
-
-[tool.pytest.ini_options]
-junit_family = "xunit1"
-addopts = "--verbose --cov --showlocals --durations=5"
-
-[tool.coverage.run]
-omit = ["*/tests/*", "*/site-packages/*"]
 
 [tool.ruff]
 line-length = 100
