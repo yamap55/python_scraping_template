@@ -79,7 +79,6 @@ GitHub のリポジトリページの「Use this template」を押下して使�
   - `https://yamap55.github.io/python_scraping_template/users/1.html`
   - 出力先: `output/{yyyyMMddhhmmss}/output.csv`
 - 一覧は静的サイトを想定して requests、詳細ページは動的ページを想定して Selenium で取得しています
--
 
 ## memo
 
