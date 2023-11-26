@@ -62,5 +62,4 @@ if __name__ == "__main__":
     start = perf_counter()
     main()
     end = perf_counter()
-    elapsed_time = f"{(end-start)/60:.2f}"
-    logger.info(f"経過時間: {simple_format_time(elapsed_time)}")
+    logger.info(f"経過時間: {simple_format_time(end - start)}")
