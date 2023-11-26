@@ -1,6 +1,6 @@
 version: "3"
 services:
-  python_scraping_test:
+  python_scraping_template:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
@@ -8,6 +8,6 @@ services:
         WORKDIR: /project
     volumes:
       - ..:/project
-    image: python_scraping_test-image
-    container_name: python_scraping_test-container
+    image: python_scraping_template-image
+    container_name: python_scraping_template-container
     tty: true

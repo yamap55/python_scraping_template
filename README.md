@@ -1,4 +1,4 @@
-# python_scraping_test
+# python_scraping_template
 
 本リポジトリは Python でスクレイピングを試すためのテンプレートリポジトリです
 devcontainer の設定をしていますので、VS Code と Docker、Git さえあれば各種開発用設定が行われた Python の開発環境が構築され、即時開発が可能です
@@ -67,7 +67,7 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 
 ## 事前準備
 
-- `python_scraping_test/config.py` の内容を更新
+- `python_scraping_template/config.py` の内容を更新
 
 ## 実行方法
 
@@ -76,7 +76,7 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 ## サンプルコード説明
 
 - サンプルコードを実行すると以下のサンプルページの情報を取得して CSV を出力します
-  - `https://yamap55.github.io/python_scraping_test/users/1.html`
+  - `https://yamap55.github.io/python_scraping_template/users/1.html`
   - 出力先: `output/{yyyyMMddhhmmss}/output.csv`
 - 一覧は静的サイトを想定して requests、詳細ページは動的ページを想定して Selenium で取得しています
 -

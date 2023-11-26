@@ -2,8 +2,7 @@
 from logging import getLogger
 
 from bs4 import BeautifulSoup
-
-from python_scraping_test.managed_selenium_driver import ManagedSeleniumDriver
+from python_scraping_template.managed_selenium_driver import ManagedSeleniumDriver
 
 logger = getLogger(__name__)
 

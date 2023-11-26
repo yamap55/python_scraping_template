@@ -4,8 +4,7 @@ from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
-
-from python_scraping_test.config import (
+from python_scraping_template.config import (
     BASE_URL,
 )
 
@@ -50,7 +49,7 @@ class UserIterator:
         return self.users.pop(0)
 
     def _get_users(self, page=1):
-        full_url = urljoin(BASE_URL, f"/python_scraping_test/users/{page}.html")
+        full_url = urljoin(BASE_URL, f"/python_scraping_template/users/{page}.html")
         logger.info(f"Loading {full_url}")
         response = requests.get(full_url)
         soup = BeautifulSoup(response.text, "html.parser")

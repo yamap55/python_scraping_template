@@ -4,19 +4,19 @@ from logging import config, getLogger
 from time import perf_counter
 from urllib.parse import urljoin
 
-from python_scraping_test.config import (
+from python_scraping_template.config import (
     BASE_OUTPUT_PATH,
     BASE_URL,
     SCRAPING_END_PAGE,
     SCRAPING_TRANSITION_PAUSE,
     SELENIUM_TIMEOUT,
 )
-from python_scraping_test.managed_csv_writer import ManagedCsvWriter
-from python_scraping_test.managed_selenium_driver import ManagedSeleniumDriver
-from python_scraping_test.user import User
-from python_scraping_test.user_detail import UserDetail
-from python_scraping_test.user_iterator import UserIterator
-from python_scraping_test.util import create_output_directory, simple_format_time
+from python_scraping_template.managed_csv_writer import ManagedCsvWriter
+from python_scraping_template.managed_selenium_driver import ManagedSeleniumDriver
+from python_scraping_template.user import User
+from python_scraping_template.user_detail import UserDetail
+from python_scraping_template.user_iterator import UserIterator
+from python_scraping_template.util import create_output_directory, simple_format_time
 
 config.fileConfig("logging.conf", disable_existing_loggers=False)
 
