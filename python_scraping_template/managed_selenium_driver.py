@@ -2,14 +2,15 @@
 import time
 from logging import getLogger
 
+from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.chrome.options import Options
+
 from python_scraping_template.config import (
     SELENIUM_MAX_GET_COUNT,
     SELENIUM_MAX_RETRIES,
     SELENIUM_RETRY_DELAY,
 )
-from selenium import webdriver
-from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.chrome.options import Options
 
 logger = getLogger(__name__)
 
