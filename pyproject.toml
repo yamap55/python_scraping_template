@@ -15,7 +15,7 @@ chromedriver-binary = "119.0.6045.9.0"
 [tool.poetry.group.dev.dependencies]
 # lint
 black = "23.11.0"
-ruff = "^0.1.6"
+ruff = "^0.1.7"
 
 # notebook
 ipykernel = "6.27.1"
