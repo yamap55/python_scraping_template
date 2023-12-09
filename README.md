@@ -39,7 +39,7 @@ GitHub のリポジトリページの「Use this template」を押下して使�
       - 環境変数を使用しない場合は除去
   - main.py
   - logging.conf
-    - `hoge` を使用するモジュール名に合わせる
+    - `python_scraping_template` を使用するモジュール名に合わせる
   - `README.md`
   - `LICENSE`
   - dependabot
@@ -47,14 +47,17 @@ GitHub のリポジトリページの「Use this template」を押下して使�
     - `.github/workflows/auto_merge_depandabot.yml`
   - pyproject.toml
     - `tool.poetry.name`, `tool.poetry.description`, `tool.poetry.authors`
-- Chrome、Webdriver のバージョン変更
-  - 使用時のバージョンに合わせて以下のバージョンを更新してください
-  - Chrome
-    - 確認: https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable
-    - 変更: `.devcontainer/Dockerfile`
-  - Webdriver
-    - 確認: https://pypi.org/project/chromedriver-binary/
-    - 変更: `pyproject.toml`
+- Chromeに合わせてWebdriverを導入
+  - 本リポジトリはChromeを最新版（aptでインストールできる最新版）を導入しています
+  - WebdriverをChromeに合わせてインストールするのは難しかったため、WebDriverは手動でインストールする必要があります
+  - 手順
+     1. Chromeのバージョンを確認
+        - `google-chrome --version`
+     2. インストール可能なWebdriverのバージョンを確認
+        - コマンド: `pip index versions chromedriver-binary`
+        - Web: https://pypi.org/project/chromedriver-binary/#history
+     3. Webdriverインストール
+        - コマンド: `poetry add chromedriver-binary=={バージョン}`
 
 ### 開発手順
 
@@ -76,7 +79,8 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 ## サンプルコード説明
 
 - サンプルコードを実行すると以下のサンプルページの情報を取得して CSV を出力します
-  - `https://yamap55.github.io/python_scraping_template/users/1.html`
+  - 実行: `python main.py`
+  - サンプルページ: `https://yamap55.github.io/python_scraping_template/users/1.html`
   - 出力先: `output/{yyyyMMddhhmmss}/output.csv`
 - 一覧は静的サイトを想定して requests、詳細ページは動的ページを想定して Selenium で取得しています
 
@@ -88,3 +92,9 @@ GitHub のリポジトリページの「Use this template」を押下して使�
   - `google-chrome --version`
 - WebDriver for Chrome のバージョン確認
   - `poetry show | grep chromedriver-binary`
+- Chromeのstableチャンネルのバージョン確認
+  - https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable
+- Webdriver のバージョン確認
+  - https://pypi.org/project/chromedriver-binary/#history
+- poetryでライブラリの削除
+  - `poetry remove {パッケージ名}`
