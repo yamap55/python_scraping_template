@@ -1,12 +1,12 @@
 # python_scraping_template
 
 本リポジトリは Python でスクレイピングを試すためのテンプレートリポジトリです
-devcontainer の設定をしていますので、VS Code と Docker、Git さえあれば各種開発用設定が行われた Python の開発環境が構築され、即時開発が可能です
+Dev Container の設定をしていますので、VS Code と Docker、Git さえあれば各種開発用設定が行われた Python の開発環境が構築され、即時開発が可能です
 GitHub のリポジトリページの「Use this template」を押下して使用してください
 
 ## 内容
 
-- [devcontainer](https://code.visualstudio.com/docs/remote/containers)
+- [Dev Container](https://code.visualstudio.com/docs/remote/containers)
 - lint
   - [ruff](https://beta.ruff.rs/docs/)
   - [black](https://black.readthedocs.io/en/stable/)
@@ -47,17 +47,6 @@ GitHub のリポジトリページの「Use this template」を押下して使�
     - `.github/workflows/auto_merge_depandabot.yml`
   - pyproject.toml
     - `tool.poetry.name`, `tool.poetry.description`, `tool.poetry.authors`
-- Chromeに合わせてWebdriverを導入
-  - 本リポジトリはChromeを最新版（aptでインストールできる最新版）を導入しています
-  - WebdriverをChromeに合わせてインストールするのは難しかったため、WebDriverは手動でインストールする必要があります
-  - 手順
-     1. Chromeのバージョンを確認
-        - `google-chrome --version`
-     2. インストール可能なWebdriverのバージョンを確認
-        - コマンド: `pip index versions chromedriver-binary`
-        - Web: https://pypi.org/project/chromedriver-binary/#history
-     3. Webdriverインストール
-        - コマンド: `poetry add chromedriver-binary=={バージョン}`
 
 ### 開発手順
 
@@ -90,11 +79,16 @@ GitHub のリポジトリページの「Use this template」を押下して使�
   - `google-chrome --no-sandbox --headless --disable-gpu --screenshot="screenshot_$(date +"%Y%m%d").png" --window-size=1280,1080 https://www.ugtop.com/spill.shtml`
 - Chrome のバージョン確認
   - `google-chrome --version`
-- WebDriver for Chrome のバージョン確認
-  - `poetry show | grep chromedriver-binary`
 - Chromeのstableチャンネルのバージョン確認
   - https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable
 - Webdriver のバージョン確認
   - https://pypi.org/project/chromedriver-binary/#history
 - poetryでライブラリの削除
   - `poetry remove {パッケージ名}`
+- WebDriver for Chrome について
+  - 正統派にWebDriverをインストールにするには `chromedriver-binary` を使用するのが良い
+  - ChromeとWebDriverはバージョンを合わせる必要があり、Chromeの特定のバージョンを使用するのはとても手間がかかる
+  - そのため、本環境ではChromeを最新バージョンでインストールし、WebDriverはChromeに合わせてインストールする方法を選択した
+  - WebDriverのバージョンを合わせるためには、`chromedriver-binary` の作者が `chromedriver-binary-auto` というパッケージを作成しているためこちらを利用する
+  - `chromedriver-binary-auto` は インストール時にChromeのバージョンを確認し、それに合わせたWebDriverをインストールしてくれる
+  - よって、本環境ではコンテナをビルドした際にChromeの最新バージョンがインストールされ、DevContainer起動時に `poetry install` が実行され、 `chromedriver-binary-auto` がインストールされ、その結果、Chromeのバージョンに合わせたWebDriverがインストールされるという流れになっている
