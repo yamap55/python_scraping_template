@@ -38,6 +38,7 @@ GitHub のリポジトリページの「Use this template」を押下して使�
     - `env_file`
       - 環境変数を使用しない場合は除去
   - main.py
+  - `example.ipynb`
   - logging.conf
     - `python_scraping_template` を使用するモジュール名に合わせる
   - `README.md`
@@ -64,6 +65,8 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 ## 実行方法
 
 `python main.py`
+
+※ `./example.ipynb` もサンプルコードとして動作します
 
 ## サンプルコード説明
 
