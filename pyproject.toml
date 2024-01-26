@@ -14,7 +14,7 @@ chromedriver-binary-auto = "^0.3.1"
 
 [tool.poetry.group.dev.dependencies]
 # lint
-black = "23.12.1"
+black = "24.1.0"
 ruff = "^0.1.14"
 
 # notebook
