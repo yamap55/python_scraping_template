@@ -18,7 +18,7 @@ black = "24.1.1"
 ruff = "^0.2.0"
 
 # notebook
-ipykernel = "6.29.1"
+ipykernel = "6.29.2"
 
 [tool.ruff]
 line-length = 100
