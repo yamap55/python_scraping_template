@@ -1,4 +1,5 @@
 """ChromeDriver"""
+
 import time
 from logging import getLogger
 

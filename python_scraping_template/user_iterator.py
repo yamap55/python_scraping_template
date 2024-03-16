@@ -1,4 +1,5 @@
 """ユーザーを一覧から順に取得する"""
+
 from logging import getLogger
 from urllib.parse import urljoin
 

@@ -1,4 +1,5 @@
 """ユーザー詳細ページの情報"""
+
 from logging import getLogger
 
 from bs4 import BeautifulSoup

@@ -1,4 +1,5 @@
 """CSVを書き込むためのライター"""
+
 import csv
 from logging import getLogger
 from pathlib import Path
