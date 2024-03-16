@@ -1,4 +1,5 @@
 """設定値"""
+
 from pathlib import Path
 
 BASE_URL = "https://yamap55.github.io/"
