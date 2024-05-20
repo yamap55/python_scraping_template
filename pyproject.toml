@@ -7,7 +7,7 @@ license = "Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 
 [tool.poetry.dependencies]
 python = "^3.9"
-requests = "^2.31.0"
+requests = "^2.32.0"
 beautifulsoup4 = "^4.12.3"
 selenium = "^4.21.0"
 chromedriver-binary-auto = "^0.3.1"
