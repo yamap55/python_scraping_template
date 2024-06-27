@@ -9,7 +9,7 @@ license = "Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 python = "^3.9"
 requests = "^2.32.3"
 beautifulsoup4 = "^4.12.3"
-selenium = "^4.21.0"
+selenium = "^4.22.0"
 chromedriver-binary-auto = "^0.3.1"
 pytest = "^8.2.2"
 
