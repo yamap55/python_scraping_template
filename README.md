@@ -7,18 +7,16 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 ## 内容
 
 - [Dev Container](https://code.visualstudio.com/docs/remote/containers)
-- lint
+- [Rye](https://rye.astral.sh/)
   - [ruff](https://beta.ruff.rs/docs/)
-  - [black](https://black.readthedocs.io/en/stable/)
-  - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [pyright](https://github.com/microsoft/pyright)
-  - [hadolint](https://github.com/hadolint/hadolint)
-- [poetry](https://python-poetry.org/)
+- [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), [pyright](https://github.com/microsoft/pyright)
+- [hadolint](https://github.com/hadolint/hadolint)
 - [GitHub Actions](https://github.co.jp/features/actions)
 - [logging](https://docs.python.org/ja/3/howto/logging.html)
 
 ## 環境詳細
 
-- Python : 3.11
+- Python : 3.12
 
 ### 事前準備
 
@@ -35,8 +33,6 @@ GitHub のリポジトリページの「Use this template」を押下して使�
   - `compose.yaml`
     - `services` の Key 名
     - `image`, `container_name`
-    - `env_file`
-      - 環境変数を使用しない場合は除去
   - main.py
   - `example.ipynb`
   - logging.conf
@@ -47,7 +43,7 @@ GitHub のリポジトリページの「Use this template」を押下して使�
     - `.github/dependabot.yml`
     - `.github/workflows/auto_merge_depandabot.yml`
   - pyproject.toml
-    - `tool.poetry.name`, `tool.poetry.description`, `tool.poetry.authors`
+    - `project.name`, `project.description`, `project.authors`, `tool.hatch.build.targets.wheel`
 
 ### 開発手順
 
@@ -82,16 +78,16 @@ GitHub のリポジトリページの「Use this template」を押下して使�
   - `google-chrome --no-sandbox --headless --disable-gpu --screenshot="screenshot_$(date +"%Y%m%d").png" --window-size=1280,1080 https://www.ugtop.com/spill.shtml`
 - Chrome のバージョン確認
   - `google-chrome --version`
-- Chromeのstableチャンネルのバージョン確認
+- Chrome の stable チャンネルのバージョン確認
   - https://www.ubuntuupdates.org/package/google_chrome/stable/main/base/google-chrome-stable
 - Webdriver のバージョン確認
   - https://pypi.org/project/chromedriver-binary/#history
-- poetryでライブラリの削除
-  - `poetry remove {パッケージ名}`
+- Rye でライブラリの削除
+  - `rye remove {パッケージ名}`
 - WebDriver for Chrome について
-  - 正統派にWebDriverをインストールにするには `chromedriver-binary` を使用するのが良い
-  - ChromeとWebDriverはバージョンを合わせる必要があり、Chromeの特定のバージョンを使用するのはとても手間がかかる
-  - そのため、本環境ではChromeを最新バージョンでインストールし、WebDriverはChromeに合わせてインストールする方法を選択した
-  - WebDriverのバージョンを合わせるためには、`chromedriver-binary` の作者が `chromedriver-binary-auto` というパッケージを作成しているためこちらを利用する
-  - `chromedriver-binary-auto` は インストール時にChromeのバージョンを確認し、それに合わせたWebDriverをインストールしてくれる
-  - よって、本環境ではコンテナをビルドした際にChromeの最新バージョンがインストールされ、DevContainer起動時に `poetry install` が実行され、 `chromedriver-binary-auto` がインストールされ、その結果、Chromeのバージョンに合わせたWebDriverがインストールされるという流れになっている
+  - 正統派に WebDriver をインストールにするには `chromedriver-binary` を使用するのが良い
+  - Chrome と WebDriver はバージョンを合わせる必要があり、Chrome の特定のバージョンを使用するのはとても手間がかかる
+  - そのため、本環境では Chrome を最新バージョンでインストールし、WebDriver は Chrome に合わせてインストールする方法を選択した
+  - WebDriver のバージョンを合わせるためには、`chromedriver-binary` の作者が `chromedriver-binary-auto` というパッケージを作成しているためこちらを利用する
+  - `chromedriver-binary-auto` は インストール時に Chrome のバージョンを確認し、それに合わせた WebDriver をインストールしてくれる
+  - よって、本環境ではコンテナをビルドした際に Chrome の最新バージョンがインストールされ、DevContainer 起動時に `poetry install` が実行され、 `chromedriver-binary-auto` がインストールされ、その結果、Chrome のバージョンに合わせた WebDriver がインストールされるという流れになっている
