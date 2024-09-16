@@ -1,4 +1,4 @@
-FROM python:3.11.10
+FROM python:3.12.6
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -26,7 +26,7 @@ RUN /bin/echo -e "\n\
 RUN rm -rf /var/lib/apt/lists/* \
     && apt-get update \
     && apt-get upgrade -y \
-    && apt-get -y --no-install-recommends install sudo vim tzdata less \
+    && apt-get -y --no-install-recommends install sudo vim tzdata less jq \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
@@ -36,7 +36,7 @@ RUN wget --progress=dot:giga https://github.com/hadolint/hadolint/releases/lates
     && chmod +x /usr/local/bin/hadolint
 
 # pyright install
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install --no-install-recommends -y nodejs \
     && npm install --global pyright
 
@@ -58,11 +58,19 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --d
     && rm -rf /var/lib/apt/lists/*
 
 USER $USERNAME
-ENV PATH "/home/$USERNAME/.poetry/bin:$PATH"
+ENV HOME=/home/$USERNAME
+ENV PATH="${HOME}/.local/bin:${PATH}"
+ENV RYE_NO_AUTO_INSTALL=1
+ENV RYE_HOME="${HOME}/.rye"
+ENV UV_LINK_MODE=copy
 
-# poetry install
-ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-RUN curl -sSL https://install.python-poetry.org | python -
+# install rye
+# hadolint ignore=SC1091
+RUN curl -sSf https://rye.astral.sh/get | RYE_INSTALL_OPTION="--yes" bash \
+    && echo "source \"${RYE_HOME}/env\"" >> ~/.profile \
+    && source "${RYE_HOME}/env" \
+    && mkdir -p ~/.local/share/bash-completion/completions \
+    && rye self completion > ~/.local/share/bash-completion/completions/rye.bash
 
 # terminal setting
 RUN wget --progress=dot:giga https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
