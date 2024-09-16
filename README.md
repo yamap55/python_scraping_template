@@ -39,6 +39,8 @@ GitHub のリポジトリページの「Use this template」を押下して使�
     - `python_scraping_template` を使用するモジュール名に合わせる
   - `README.md`
   - `LICENSE`
+  - doc
+    - サンプルページである `doc` ディレクトリの削除
   - dependabot
     - `.github/dependabot.yml`
     - `.github/workflows/auto_merge_depandabot.yml`
@@ -53,6 +55,7 @@ GitHub のリポジトリページの「Use this template」を押下して使�
 4. しばらく待つ
    - 初回の場合コンテナー image の取得や作成が行われる
 5. 起動したら開発可能
+   - 初回起動時は `rye sync` を実行してください
 
 ## 事前準備
 
