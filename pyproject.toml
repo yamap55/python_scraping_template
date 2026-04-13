@@ -7,7 +7,7 @@ authors = [
 ]
 license = { file = "LICENSE" }
 dependencies = [
-    "requests>=2.32.3",
+    "requests>=2.33.1",
     "beautifulsoup4>=4.12.3",
     "selenium>=4.24.0",
     "chromedriver-binary-auto>=0.3.1",
